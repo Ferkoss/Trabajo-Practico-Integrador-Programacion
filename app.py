@@ -7,8 +7,23 @@ from liga import Liga
 from pais import Pais
 
 
+def cambio_titulares(equipo_seleccionado):
+    for i,jugador in enumerate(equipo_seleccionado.titulares,1):
+        print(str(i)+" - "+jugador.nombre+" "+jugador.apellido)
+    opc_sale=int(input("Ingrese su opcion: "))
+    while opc_sale<0 or opc_sale>len(equipo_seleccionado.titulares):
+        opc_sale=int(input("Ingrese su opcion nuevamente: "))
+    jugador_sale=equipo_seleccionado.titulares[opc_sale-1]
+    suplentes=list(filter(lambda x:x not in equipo_seleccionado.titulares,equipo_seleccionado.jugadores))
+    for i,jugador in enumerate(suplentes,1):
+        print(str(i)+" - "+jugador.nombre+" "+jugador.apellido)
 
-
+    opc_entra=int(input("Ingrese su opcion: "))
+    while opc_entra<0 or opc_entra>len(suplentes):
+        opc_entra=int(input("Ingrese su opcion nuevamente: "))
+    jugador_entra=suplentes[opc_entra-1]
+    equipo_seleccionado.cambio_titulares(jugador_entra,jugador_sale)
+    
 
 def elegir_club():
 
@@ -62,25 +77,7 @@ def elegir_club():
         opc=int(input("Ingrese su opcion: "))
 
         if opc==1:
-            for i,jugador in enumerate(equipo_seleccionado.titulares,1):
-                print(str(i)+" - "+jugador.nombre+" "+jugador.apellido)
-
-            opc_sale=int(input("Ingrese su opcion: "))
-
-            while opc_sale<0 or opc_sale>len(equipo_seleccionado.titulares):
-                opc_sale=int(input("Ingrese su opcion nuevamente: "))
-
-            jugador_sale=equipo_seleccionado.titulares[opc_sale-1]
-
-            suplentes=list(filter(lambda x:x not in equipo_seleccionado.titulares,equipo_seleccionado.jugadores))
-            for i,jugador in enumerate(suplentes,1):
-                print(str(i)+" - "+jugador.nombre+" "+jugador.apellido)
-            
-            opc_entra=int(input("Ingrese su opcion: "))
-
-            while opc_entra<0 or opc_entra>len(equipo_seleccionado.titulares):
-                opc_entra=int(input("Ingrese su opcion nuevamente: "))
-
+            cambio_titulares(equipo_seleccionado)
 
 
         elif opc==2:
