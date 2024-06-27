@@ -1,5 +1,5 @@
 from persona import Persona
-from random import *
+from random import randrange
 
 class Jugador(Persona):
     __lista_id=[]

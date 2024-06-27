@@ -5,6 +5,7 @@ from datetime import *
 from dt import Dt
 from liga import Liga
 from pais import Pais
+from random import randrange
 
 def creacion_opciones(lista):
     opc=int(input("Ingrese su opcion: "))
@@ -99,14 +100,34 @@ def cambio_titulares(equipo_seleccionado):
 
 
 def entrenar(equipo_seleccionado):
-    for i,jugador in enumerate(equipo_seleccionado.jugadores,1):
-        print(str(i)+" - "+str(jugador.nombre)+" "+str(jugador.apellido)+" Puntos de habilidad: "+str(jugador.puntos_habilidad))
 
-    jugador_entreado=equipo_seleccionado.jugadores[creacion_opciones(equipo_seleccionado.jugadores)]
+    jugadores_sin_lesion=list(filter(lambda x: not x.tipo_lesion,equipo_seleccionado.jugadores))
 
-    jugador_entreado.entrenar()
+    for i,jugador in enumerate(jugadores_sin_lesion,1):
+        if not jugador.tipo_lesion:
+            print(str(i)+" - "+str(jugador.nombre)+" "+str(jugador.apellido)+" Puntos de habilidad: "+str(jugador.puntos_habilidad))
 
-    print("El jugador "+jugador_entreado.nombre+" ahora tiene "+str(jugador_entreado.puntos_habilidad)+" puntos de habilidad")
+    jugador_entreado=jugadores_sin_lesion[creacion_opciones(jugadores_sin_lesion)]
+
+    probabilidad_lesion=randrange(1,100) #La funcion randrange elije un numero al azar entre 1 y 100
+                                         #si el numero esta entre 1 y 5 el jugador tuvo un desgarre
+                                         #entre 5 y 10 tuvo una fractura, sino, entreno bien y sube puntos
+    if probabilidad_lesion<=5:
+        jugador_entreado.tipo_lesion="desgarre"
+        print("El jugador "+jugador_entreado.nombre+" "+jugador_entreado.apellido+" ha sufrido un desgarre")
+    elif probabilidad_lesion<=10:
+        jugador_entreado.tipo_lesion="fractura"
+        print("El jugador "+jugador_entreado.nombre+" "+jugador_entreado.apellido+" ha sufrido una fractura")
+    else:
+        jugador_entreado.entrenar()
+        print("El jugador "+jugador_entreado.nombre+" "+jugador_entreado.apellido+" ahora tiene "+str(jugador_entreado.puntos_habilidad)+" puntos de habilidad")
+    
+
+def ver_lesionados(equipo_seleccionado):
+    for jugador in equipo_seleccionado.jugadores:
+        if jugador.tipo_lesion:
+            print(jugador.nombre+" "+jugador.apellido+" Tipo Lesion: "+jugador.tipo_lesion)
+
 
 def elegir_club():
 
@@ -121,7 +142,8 @@ def elegir_club():
         print("4. Ver mis jugadores")
         print("5. Ver Titulares")
         print("6. Entrenar Jugador")
-        print("7. Salir")
+        print("7. Ver jugadores Lesionados")
+        print("8. Salir")
         opc=int(input("Ingrese su opcion: "))
 
         if opc==1:
@@ -140,6 +162,8 @@ def elegir_club():
         elif opc==6:
             entrenar(equipo_seleccionado)
         elif opc==7:
+            ver_lesionados(equipo_seleccionado)
+        elif opc==8:
             break
         else:
             print("opcion invalida")
