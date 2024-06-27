@@ -186,7 +186,8 @@ def crear_jugador():
 
 
 
-
+print(ascii_messi)
+print(fifa_ascii)
 
 while True:
     print("1. Elegir Club")

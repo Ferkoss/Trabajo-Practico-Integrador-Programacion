@@ -153,7 +153,8 @@ CEN_covea,
 CEN_rod_vecchio,
 CEN_gamba,
 CEN_osorio,
-CEN_russo
+CEN_russo,
+CEN_malcorra
 ]
 
 for jugador in jugadores_central:
@@ -192,11 +193,14 @@ BOCA_advincula,
 BOCA_izquierdoz,
 BOCA_rojo,
 BOCA_fabra,
+BOCA_anselmino,
 BOCA_varela,
 BOCA_pol_fernandez,
 BOCA_payero,
 BOCA_villa,
-BOCA_benedetto]
+BOCA_benedetto,
+BOCA_fernandez,
+BOCA_valentini]
 
 for jugador in jugadores_boca:
     boca.add_jugadores(jugador)
@@ -225,7 +229,8 @@ RIVER_paradigma,
 RIVER_de_la_cruz,
 RIVER_simon,
 RIVER_beltran,
-RIVER_alvarez]
+RIVER_alvarez,
+RIVER_barco]
 
 river.titulares=[RIVER_armani,
 RIVER_quarta,
@@ -270,7 +275,8 @@ ATLANTA_merlo,
 ATLANTA_bisso,
 ATLANTA_villalba,
 ATLANTA_romero,
-ATLANTA_alvarez,]
+ATLANTA_alvarez,
+ATLANTA_diaz]
 
 
 jugadores_atlanta=[ATLANTA_herrera,
@@ -312,7 +318,9 @@ BARSA_pedri,
 BARSA_gavi,
 BARSA_dembele,
 BARSA_aubameyang,
-BARSA_ferran]
+BARSA_ferran,
+BARSA_pau,
+BARSA_raphinha]
 
 barcelona.titulares=[
 BARSA_ters_tegen,

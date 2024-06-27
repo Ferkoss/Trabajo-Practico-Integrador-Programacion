@@ -70,7 +70,7 @@ class Club():
         self.__titulares.append(entra)
 
     def __str__(self):
-        return f"Club: {self.__nombre} Fondos: {self.__plata}"
+        return f"Club: {self.__nombre} Fondos: ${self.__plata}"
     
     
 
