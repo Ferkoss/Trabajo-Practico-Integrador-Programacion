@@ -104,8 +104,8 @@ def entrenar(equipo_seleccionado):
     jugadores_sin_lesion=list(filter(lambda x: not x.tipo_lesion,equipo_seleccionado.jugadores))
 
     for i,jugador in enumerate(jugadores_sin_lesion,1):
-        if not jugador.tipo_lesion:
-            print(str(i)+" - "+str(jugador.nombre)+" "+str(jugador.apellido)+" Puntos de habilidad: "+str(jugador.puntos_habilidad))
+        
+        print(str(i)+" - "+str(jugador.nombre)+" "+str(jugador.apellido)+" Puntos de habilidad: "+str(jugador.puntos_habilidad))
 
     jugador_entreado=jugadores_sin_lesion[creacion_opciones(jugadores_sin_lesion)]
 
