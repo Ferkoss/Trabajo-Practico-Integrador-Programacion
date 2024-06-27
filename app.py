@@ -10,26 +10,26 @@ def creacion_opciones(lista):
     opc=int(input("Ingrese su opcion: "))
     while opc<0 or opc>len(lista):
         opc=int(input("Ingrese su opcion nuevamente: "))
-    return opc
+    return opc-1
 
 def busca_equipo():
     print("Ingrese el pais del equipo")
     for i,pais in enumerate(lista_paises,1):
         print(str(i)+" - "+pais.nombre)
-    pais_seleccionado=lista_paises[creacion_opciones(lista_paises)-1]
+    pais_seleccionado=lista_paises[creacion_opciones(lista_paises)]
 
 
     print("Ingrese la liga del equipo")
     for i,liga in enumerate(pais_seleccionado.ligas,1):
         print(str(i)+" - "+liga.nombre)
 
-    liga_seleccionada=pais_seleccionado.ligas[creacion_opciones(pais_seleccionado.ligas)-1]
+    liga_seleccionada=pais_seleccionado.ligas[creacion_opciones(pais_seleccionado.ligas)]
 
     print("Ingrese el equipo")
     for i,equipo in enumerate(liga_seleccionada.equipos,1):
         print(str(i)+" - "+equipo.nombre)
 
-    return liga_seleccionada.equipos[creacion_opciones(liga_seleccionada.equipos)-1]
+    return liga_seleccionada.equipos[creacion_opciones(liga_seleccionada.equipos)]
 
 
 
@@ -44,7 +44,7 @@ def comprar_jugador(equipo_seleccionado):
     for i,jugadores in enumerate(equipo_vendedor.jugadores,1):
         print(str(i)+" - "+str(jugadores))
 
-    jugador_comprado=equipo_vendedor.jugadores[creacion_opciones(equipo_vendedor.jugadores)-1]
+    jugador_comprado=equipo_vendedor.jugadores[creacion_opciones(equipo_vendedor.jugadores)]
 
     equipo_seleccionado.comprar_jugadores(jugador_comprado)
     equipo_vendedor.vender_jugadores(jugador_comprado)
@@ -60,7 +60,7 @@ def vender_jugador(equipo_seleccionado):
     for i,jugador in enumerate(equipo_seleccionado.jugadores,1):
         print(str(i)+" - "+str(jugador))
 
-    jugador_vendido=equipo_seleccionado.jugadores[creacion_opciones(equipo_seleccionado.jugadores)-1]
+    jugador_vendido=equipo_seleccionado.jugadores[creacion_opciones(equipo_seleccionado.jugadores)]
 
     equipo_comprador=busca_equipo()
 
@@ -86,14 +86,14 @@ def cambio_titulares(equipo_seleccionado):
     
     
 
-    jugador_sale=equipo_seleccionado.titulares[creacion_opciones(equipo_seleccionado.titulares)-1]
+    jugador_sale=equipo_seleccionado.titulares[creacion_opciones(equipo_seleccionado.titulares)]
     suplentes=list(filter(lambda x:x not in equipo_seleccionado.titulares,equipo_seleccionado.jugadores))
     for i,jugador in enumerate(suplentes,1):
         print(str(i)+" - "+jugador.nombre+" "+jugador.apellido)
 
     
 
-    jugador_entra=suplentes[creacion_opciones(suplentes)-1]
+    jugador_entra=suplentes[creacion_opciones(suplentes)]
     equipo_seleccionado.cambio_titulares(jugador_entra,jugador_sale)
     print("Sale "+jugador_sale.nombre+" "+jugador_sale.apellido+" y entra "+jugador_entra.nombre+" "+jugador_entra.apellido)
 
@@ -102,7 +102,7 @@ def entrenar(equipo_seleccionado):
     for i,jugador in enumerate(equipo_seleccionado.jugadores,1):
         print(str(i)+" - "+str(jugador.nombre)+" "+str(jugador.apellido)+" Puntos de habilidad: "+str(jugador.puntos_habilidad))
 
-    jugador_entreado=equipo_seleccionado.jugadores[creacion_opciones(equipo_seleccionado.jugadores)-1]
+    jugador_entreado=equipo_seleccionado.jugadores[creacion_opciones(equipo_seleccionado.jugadores)]
 
     jugador_entreado.entrenar()
 
