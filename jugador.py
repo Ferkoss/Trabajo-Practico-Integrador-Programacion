@@ -89,7 +89,7 @@ class Jugador(Persona):
         self.__puntos_habilidad+=1
 
     def __str__(self) -> str:
-        return f"Nombre: {self.nombre} | Apellido: {self.apellido} | Dorsal: {self.__dorsal} | Valor: {self.valor}"
+        return f"Nombre: {self.nombre} | Apellido: {self.apellido} | Dorsal: {self.__dorsal} |Edad: {self.edad} Años | Valor: ${self.valor}"
 
     @classmethod
     def __generar_id(cls):
