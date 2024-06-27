@@ -9,7 +9,7 @@ from random import randrange
 
 def creacion_opciones(lista):
     opc=int(input("Ingrese su opcion: "))
-    while opc<0 or opc>len(lista):
+    while opc<=0 or opc>len(lista):
         opc=int(input("Ingrese su opcion nuevamente: "))
     return opc-1
 
