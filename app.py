@@ -128,6 +128,9 @@ def ver_lesionados(equipo_seleccionado):
         if jugador.tipo_lesion:
             print(jugador.nombre+" "+jugador.apellido+" Tipo Lesion: "+jugador.tipo_lesion)
 
+def ver_dt(equipo_seleccionado):
+    print(equipo_seleccionado.dt)
+
 
 def elegir_club():
 
@@ -143,7 +146,8 @@ def elegir_club():
         print("5. Ver Titulares")
         print("6. Entrenar Jugador")
         print("7. Ver jugadores Lesionados")
-        print("8. Salir")
+        print("8. Ver DT")
+        print("9. Salir")
         opc=int(input("Ingrese su opcion: "))
 
         if opc==1:
@@ -164,6 +168,8 @@ def elegir_club():
         elif opc==7:
             ver_lesionados(equipo_seleccionado)
         elif opc==8:
+            ver_dt(equipo_seleccionado)
+        elif opc==9:
             break
         else:
             print("opcion invalida")

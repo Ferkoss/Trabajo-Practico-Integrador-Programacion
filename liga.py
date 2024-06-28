@@ -19,6 +19,9 @@ class Liga():
     @property
     def cantidad_equipos(self):
         return len(self.__equipos)
+    
+    def __str__(self):
+        return f"Nombre: {self.__nombre} Cantidad de Equipos: {self.cantidad_equipos}"
 
     def add_equipos(self,equipo):
         self.__equipos.append(equipo)

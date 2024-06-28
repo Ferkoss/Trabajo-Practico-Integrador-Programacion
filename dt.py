@@ -14,4 +14,4 @@ class Dt(Persona):
         self.__formacion_predeterminada = nueva_formacion
 
     def __str__(self) -> str:
-        return f"{self.formacion_predeterminada}"        
+        return f"Nombre: {self.nombre} Apellido: {self.apellido} Formacion: {self.formacion_predeterminada}"        

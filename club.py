@@ -51,6 +51,12 @@ class Club():
         return self.__jugadores
     def add_jugadores(self,jugador):
         self.__jugadores.append(jugador)
+    @property
+    def dt(self):
+        return self.__dt
+    @dt.setter
+    def dt(self,new_dt):
+        self.__dt=new_dt
 
     def remove_jugadores(self,jugador):
         self.__jugadores.remove(jugador)

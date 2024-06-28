@@ -29,3 +29,6 @@ class Pais():
 
     def remove_liga(self,liga):
         self.__ligas.remove(liga)
+    
+    def __str__(self):
+        return f"{self.nombre}"
